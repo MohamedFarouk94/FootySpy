@@ -7,26 +7,95 @@
     android:background="#000000">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="449dp"
-        android:layout_height="580dp"
-        android:gravity="center"
-        android:text="Here will be the game."
-        android:textColor="#4e0707"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnBack1"
+        android:id="@+id/tvChoosePlayers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Choose who will play."
+        android:textSize="30sp"
+        android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvNPlayersChosen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="0 players chosen (minimum 3)"
+        android:textSize="20sp"
+        android:textColor="#4e0707"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvChoosePlayers" />
 
     <Button
         android:id="@+id/btnBack1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginStart="82dp"
+        android:layout_marginEnd="74dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#4e0707"
         android:text="Back"
-        android:backgroundTint="#430707"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnNext1"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnNext1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="73dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#4e0707"
+        android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnBack1" />
+
+    <EditText
+        android:id="@+id/etAdd"
+        android:layout_width="330dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="59dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Add player"
+        android:textColor="#ffffff"
+        android:textColorHint="#828282"
+        app:layout_constraintBottom_toTopOf="@+id/btnBack1"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivAdd"
+        android:layout_width="52dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/etAdd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etAdd"
+        app:layout_constraintTop_toTopOf="@+id/etAdd"
+        app:srcCompat="@drawable/ic_add_foreground" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPlayers"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/etAdd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNPlayersChosen" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

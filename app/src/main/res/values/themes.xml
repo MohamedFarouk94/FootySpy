@@ -6,4 +6,7 @@
     </style>
 
     <style name="Theme.FootySpy" parent="Base.Theme.FootySpy" />
+    <style name="wineCheck">
+        <item name="checkedIconTint">#4e0707</item>
+    </style>
 </resources>
