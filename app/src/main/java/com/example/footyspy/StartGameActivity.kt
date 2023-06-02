@@ -1,8 +1,11 @@
 package com.example.footyspy
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.footyspy.databinding.ActivityStartgameBinding
@@ -25,12 +28,26 @@ class StartGameActivity : AppCompatActivity() {
         binding.rvPlayers.adapter = adapter
         binding.rvPlayers.layoutManager = LinearLayoutManager(this)
 
-        binding.btnBack1.setOnClickListener {finish()}
+        binding.btnBackFromStartGame.setOnClickListener {finish()}
         binding.ivAdd.setOnClickListener{
             val addedPlayerName = binding.etAdd.text.toString()
             if(addedPlayerName != "") {
                 binding.etAdd.text.clear()
                 adapter.addPlayer(Player(addedPlayerName, true))
+            }
+        }
+
+        binding.btnNextFromStartGame.setOnClickListener {
+            if (adapter.getNChosen() < 3){
+                Toast.makeText(applicationContext, "Please check at least 3 players.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val chosenPlayers = adapter.getChosenPlayers()
+            val game = Game(chosenPlayers)
+            Intent(this, StartRoundActivity::class.java).also {
+                it.putExtra("EXTRA_GAME", game)
+                startActivity(it)
             }
         }
     }

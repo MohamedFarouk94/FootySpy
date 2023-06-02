@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".StartGameActivity"/>
         <activity android:name=".ReadOnlyActivity"/>
+        <activity android:name=".StartRoundActivity"/>
     </application>
 
 </manifest>

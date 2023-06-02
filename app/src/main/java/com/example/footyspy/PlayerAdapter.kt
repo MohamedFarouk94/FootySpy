@@ -14,7 +14,6 @@ class PlayerAdapter (
     private var players: MutableList<Player>,
     private var myParent: StartGameActivity,
     private var nChosen: Int = 0,
-    private var LOG_COUNTER: Int = 0,
 ) : RecyclerView.Adapter<PlayerAdapter.PlayerViewHolder>() {
 
     inner class PlayerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -35,13 +34,12 @@ class PlayerAdapter (
         }
 
         holder.cbChosen.setOnCheckedChangeListener {_, isChecked ->
-            players[position].isChecked = isChecked
-            updatePlayersList(position, isChecked)
+            players[holder.adapterPosition].isChecked = isChecked
+            updatePlayersList(holder.adapterPosition, isChecked)
         }
 
         holder.ivDelete.setOnClickListener {
-            Log.d("DeleteListener", "Position is $position")
-            removePlayer(players[position])
+            removePlayer(holder.adapterPosition)
         }
     }
 
@@ -56,22 +54,26 @@ class PlayerAdapter (
         // notifyDataSetChanged()
     }
 
-    private fun removePlayer(player: Player){
-        Log.d("RemovePlayer", "Name is ${player.name}")
-        val deletedIndex = players.indexOf(player)
-        Log.d("RemovePlayer", "Position is $deletedIndex")
-        players.remove(player)
-        Log.d("RemovePlayer", "${player.name} is removed in position $deletedIndex.")
-        notifyItemRemoved(deletedIndex)
+    private fun removePlayer(position: Int){
+        // val deletedIndex = players.indexOf(player)
+        // players.remove(player)
+        players.removeAt(position)
+        notifyItemRemoved(position)
         updatePlayersList()
-        notifyDataSetChanged()
+        // notifyDataSetChanged()
     }
 
     private fun updatePlayersList(position: Int = -1, isChecked: Boolean = false){
         if(position != -1) players[position].isChecked = isChecked
         nChosen = players.count { player -> player.isChecked }
-        LOG_COUNTER = (LOG_COUNTER + 1) % 10
-        Log.d("UpdatePlayersList", "$LOG_COUNTER. nPlayers = ${players.size}, nChosen = $nChosen, position = $position")
         myParent.updatetvNPlayersChosen(nChosen)
+    }
+
+    fun getChosenPlayers(): List<Player>{
+        return players.filter { player: Player -> player.isChecked}
+    }
+
+    fun getNChosen(): Int{
+        return players.count { player -> player.isChecked }
     }
 }

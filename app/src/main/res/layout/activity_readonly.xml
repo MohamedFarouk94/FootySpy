@@ -14,13 +14,13 @@
         android:textSize="40sp"
         android:textColor="#4e0707"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/btnBack2"
+        app:layout_constraintBottom_toTopOf="@+id/btnBackFromReadOnly"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnBack2"
+        android:id="@+id/btnBackFromReadOnly"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#4e0707"

@@ -12,7 +12,7 @@ class ReadOnlyActivity : AppCompatActivity(){
         val view = binding.root
         setContentView(view)
 
-        binding.btnBack2.setOnClickListener {finish()}
+        binding.btnBackFromReadOnly.setOnClickListener {finish()}
 
         val clickedButton = intent.getStringExtra("EXTRA_BUTTON")
         binding.textView2.text = "Here will be a $clickedButton page."
