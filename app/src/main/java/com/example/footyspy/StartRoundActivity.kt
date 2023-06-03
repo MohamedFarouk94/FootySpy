@@ -1,5 +1,6 @@
 package com.example.footyspy
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -30,5 +31,9 @@ class StartRoundActivity : AppCompatActivity() {
         }
         binding.tvRoundTitle.text = "Round #${game.nRoundsPlayed + 1}"
         binding.tvSetNSPiesHint.text = "We're ${game.nPlayers} so number of spies should be between 1 and ${game.maxNumberOfSpies}."
+
+        binding.btnNextFromStartRound.setOnClickListener {
+            Intent(this, RevealingNameActivity::class.java).also {startActivity(it)}
+        }
     }
 }
