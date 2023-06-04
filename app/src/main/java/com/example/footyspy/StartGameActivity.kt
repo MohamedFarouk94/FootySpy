@@ -1,6 +1,5 @@
 package com.example.footyspy
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -31,7 +30,11 @@ class StartGameActivity : AppCompatActivity() {
         binding.btnBackFromStartGame.setOnClickListener {finish()}
         binding.ivAdd.setOnClickListener{
             val addedPlayerName = binding.etAdd.text.toString()
-            if(addedPlayerName != "") {
+            if(addedPlayerName == "")
+                Toast.makeText(applicationContext, "A player must have a name.", Toast.LENGTH_SHORT).show()
+            else if(adapter.doesThisPlayerExist(addedPlayerName))
+                Toast.makeText(applicationContext, "This player already exists.", Toast.LENGTH_SHORT).show()
+            else {
                 binding.etAdd.text.clear()
                 adapter.addPlayer(Player(addedPlayerName, true))
             }

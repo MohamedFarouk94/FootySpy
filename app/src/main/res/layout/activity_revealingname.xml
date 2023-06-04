@@ -8,17 +8,18 @@
 
     <TextView
         android:id="@+id/tvSecret"
-        android:layout_width="149dp"
-        android:layout_height="94dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="0dp"
+        android:background="#ffffff"
+        android:gravity="center"
         android:text="GEHAN"
         android:textColor="#000000"
-        android:background="#ffffff"
         android:textSize="40sp"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/ivScratch"
+        app:layout_constraintEnd_toEndOf="@+id/ivScratch"
+        app:layout_constraintStart_toStartOf="@+id/ivScratch"
+        app:layout_constraintTop_toTopOf="@+id/ivScratch" />
 
     <ImageView
         android:id="@+id/ivScratch"
@@ -29,6 +30,56 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/bmp_cat_foreground" />
+
+    <TextView
+        android:id="@+id/tvAboveImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:gravity="center"
+        android:text="Hello XXX, scratch the image below gently to reveal the secret name.\nBe careful that no one looks!"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnNextFromRevealingName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="16dp"
+        android:text="Next"
+        android:backgroundTint="#4e0707"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnBackFromRevealingName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginBottom="16dp"
+        android:text="Back"
+        android:backgroundTint="#4e0707"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvBelowImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="Only if you're sure that you get the name\n(Or if you're the spy!)\nPress Next!\nAnd give the phone to YYY"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnNextFromRevealingName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSecret" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

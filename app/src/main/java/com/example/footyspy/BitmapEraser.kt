@@ -1,7 +1,5 @@
 package com.example.footyspy
 
-import android.util.Log
-
 class BitmapEraser (
     private val width : Int,
     private val height: Int,
@@ -15,7 +13,6 @@ class BitmapEraser (
     }
 
     private fun getNeighbors(x: Int, y: Int, level : Int){
-        Log.d("Eraser", "x = $x, y = $y, level = $level")
         if(!isValid(x, y)) return
         coordinates.add(Pair(x, y))
         boolMap[x][y] = true
@@ -25,7 +22,6 @@ class BitmapEraser (
     }
 
     fun getPoints (x: Int, y: Int, level: Int) : List<Pair<Int, Int>> {
-        Log.d("Eraser", "$width, $height")
         coordinates.clear()
         getNeighbors(x, y, level)
         return coordinates

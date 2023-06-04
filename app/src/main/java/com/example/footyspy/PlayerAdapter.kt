@@ -73,7 +73,11 @@ class PlayerAdapter (
         return players.filter { player: Player -> player.isChecked}
     }
 
-    fun getNChosen(): Int{
+    fun getNChosen() : Int{
         return players.count { player -> player.isChecked }
+    }
+
+    fun doesThisPlayerExist(name : String) : Boolean{
+        return players.any {player ->  player.name == name}
     }
 }

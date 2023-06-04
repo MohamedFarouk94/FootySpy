@@ -3,6 +3,7 @@ package com.example.footyspy
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
 import com.example.footyspy.databinding.ActivityStartroundBinding
 import java.lang.Integer.max
@@ -33,7 +34,13 @@ class StartRoundActivity : AppCompatActivity() {
         binding.tvSetNSPiesHint.text = "We're ${game.nPlayers} so number of spies should be between 1 and ${game.maxNumberOfSpies}."
 
         binding.btnNextFromStartRound.setOnClickListener {
-            Intent(this, RevealingNameActivity::class.java).also {startActivity(it)}
+            val round = Round(game, binding.etNSpies.text.toString().toInt(),
+                findViewById<RadioButton>(binding.rgRoundTopic.checkedRadioButtonId).text.toString())
+            Log.d("Round", "${round.nSpies} --- ${round.topic}")
+            Intent(this, RevealingNameActivity::class.java).also {
+                it.putExtra("EXTRA_ROUND", round)
+                startActivity(it)
+            }
         }
     }
 }
