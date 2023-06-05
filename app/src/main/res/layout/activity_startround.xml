@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="72dp"
         android:layout_marginBottom="16dp"
-        android:text="Next"
+        android:text="@string/next"
         android:backgroundTint="#4e0707"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
         android:layout_marginBottom="16dp"
-        android:text="Back"
+        android:text="@string/back"
         android:backgroundTint="#4e0707"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Round #X"
+        android:text="@string/round_n"
         android:textColor="#ffffff"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="80dp"
-        android:text="How many spies are among us this round?"
+        android:text="@string/set_n_spies"
         android:textColor="#ffffff"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="We're mm so number of spies should be between 1 and nn."
+        android:text="@string/set_n_spies_hint"
         android:textColor="#ffffff"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -110,7 +110,7 @@
             android:id="@+id/rbFootballPlayers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Football Players"
+            android:text="@string/football_players"
             android:textColor="#ffffff"
             android:checked="true"/>
 
@@ -118,14 +118,14 @@
             android:id="@+id/rbFootballClubs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Football Clubs"
+            android:text="@string/football_clubs"
             android:textColor="#ffffff" />
 
         <RadioButton
             android:id="@+id/rbNationalTeams"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="National Teams"
+            android:text="@string/national_teams"
             android:textColor="#ffffff" />
 
     </RadioGroup>
@@ -136,7 +136,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Choose the round topic."
+        android:text="@string/choose_round_topic"
         android:textColor="#ffffff"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/rgRoundTopic"

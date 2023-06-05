@@ -27,32 +27,31 @@ class RevealingNameActivity : AppCompatActivity() {
         setContentView(view)
 
         val round = intent.getSerializableExtra("EXTRA_ROUND") as Round
-        val roundEngine = RoundEngine(round)
-        roundEngine.startRound()
+        round.startRound(this)
 
         val bitmap: Bitmap = BitmapFactory.decodeResource(this.resources, R.mipmap.bmp_cat_foreground)
         val mutableBitmap : Bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true)
         binding.ivScratch.setImageBitmap(mutableBitmap)
         val eraser: BitmapEraser = BitmapEraser(mutableBitmap.width.toInt(), mutableBitmap.height.toInt())
-        restartScreen(view, roundEngine, bitmap)
+        restartScreen(view, round, bitmap)
 
         binding.btnNextFromRevealingName.setOnClickListener {
             currentPlayerId++
-            restartScreen(view, roundEngine, bitmap)
+            restartScreen(view, round, bitmap)
         }
     }
 
-    private fun restartScreen(view: ConstraintLayout, roundEngine: RoundEngine, bitmap: Bitmap){
+    private fun restartScreen(view: ConstraintLayout, round: Round, bitmap: Bitmap){
         val mutableBitmap : Bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true)
-        val nPlayers = roundEngine.round.game.nPlayers
+        val nPlayers = round.game.nPlayers
         binding.ivScratch.setImageBitmap(mutableBitmap)
         eraser = BitmapEraser(mutableBitmap.width.toInt(), mutableBitmap.height.toInt())
-        val currentPlayerName = roundEngine.round.game.chosenPlayers[currentPlayerId % nPlayers].name
-        val nextPlayerName = roundEngine.round.game.chosenPlayers[(currentPlayerId + 1) % nPlayers].name
-        val secretName = if(roundEngine.round.game.chosenPlayers[currentPlayerId % nPlayers].isSpy) "SPY @_@" else "Hello!"
+        val currentPlayerName = round.game.chosenPlayers[currentPlayerId % nPlayers].name
+        val nextPlayerName = round.game.chosenPlayers[(currentPlayerId + 1) % nPlayers].name
+        val secretName = if(round.game.chosenPlayers[currentPlayerId % nPlayers].isSpy) "SPY @_@" else round.secretWord
 
-        binding.tvAboveImage.text = "Hello $currentPlayerName, scratch the image below gently to reveal the secret name.\nBe careful that no one looks!"
-        binding.tvBelowImage.text = "Only if you're sure that you get the name\n(Or if you're the spy!)\nPress Next!\nAnd give the phone to $nextPlayerName"
+        binding.tvAboveImage.text = String.format(resources.getString(R.string.above_image), currentPlayerName)
+        binding.tvBelowImage.text = String.format(resources.getString(R.string.below_image), nextPlayerName)
         binding.tvSecret.text = secretName
 
 

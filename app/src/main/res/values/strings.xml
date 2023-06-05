@@ -1,3 +1,41 @@
 <resources>
+    <!--General-->
     <string name="app_name">FootySpy</string>
+    <string name="hello_world">Hello, World!</string>
+    <string name="one">1</string>
+
+    <!--Next & Back-->
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+
+    <!--Main Activity-->
+    <string name="start_game">Start Game</string>
+    <string name="how_to_play">How To Play</string>
+    <string name="credits">Credits</string>
+    <string name="contact">Contact</string>
+
+    <!--Start Game Activity-->
+    <string name="choose_players">Choose who will play.</string>
+    <string name="choose_players_hint">%1$d players chosen.</string>
+    <string name="choose_players_tail">(minimum 3)</string>
+    <string name="choose_players_hint_tail_combined">%1$d players chosen. (minimum 3)</string>
+    <string name="add_player">Add player</string>
+
+    <!--Start Round Activity-->
+    <string name="round_n">Round #%1$d</string>
+    <string name="set_n_spies">How many spies are among us this round?</string>
+    <string name="set_n_spies_hint">We\'re %1$d so number of spies should be between 1 and %2$d.</string>
+    <string name="choose_round_topic">Choose the round topic</string>
+    <string name="football_players">Football Players</string>
+    <string name="football_clubs">Football Clubs</string>
+    <string name="national_teams">National Teams</string>
+
+    <!--Revealing Name Activity-->
+    <string name="above_image">Hello %1$s, scratch the image below gently to reveal the secret name.\nBe careful that no one looks!</string>
+    <string name="below_image">Only if you\'re sure that you get the name\n(Or if you\'re the spy!)\nPress Next!\nAnd give the phone to %1$s</string>
+
+    <!--Toasts-->
+    <string name="player_empty">A player must have a name.</string>
+    <string name="player_exists">This player already exists.</string>
+    <string name="not_enough">Please select at least 3 players.</string>
 </resources>

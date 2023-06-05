@@ -1,6 +1,9 @@
 package com.example.footyspy
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
+import android.content.SharedPreferences.Editor
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -8,11 +11,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.footyspy.databinding.ActivityStartgameBinding
-import java.lang.Exception
 
 class StartGameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityStartgameBinding
     private lateinit var adapter: PlayerAdapter
+    private lateinit var sharedPref: SharedPreferences
+    private lateinit var editor: Editor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d("StartGame", "Inside the onCreate function.")
@@ -21,19 +25,25 @@ class StartGameActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        var players = mutableListOf<Player>(Player("Farouk", false),
-            Player("Gehan", false))
+        sharedPref = getSharedPreferences("savedPlayers", Context.MODE_PRIVATE)
+        editor = sharedPref.edit()
+
+        val commaSeparatedPlayersNames = sharedPref.getString("commaSeparatedPlayersNames", null)
+        var players = commaSeparatedPlayersNames?.split(",")?.map {Player(it, false)}?.toMutableList()
+        if(players == null) players = mutableListOf()
+        if(players.size == 1 && players[0].name == "") players = mutableListOf()
         adapter = PlayerAdapter(players, this)
         binding.rvPlayers.adapter = adapter
         binding.rvPlayers.layoutManager = LinearLayoutManager(this)
+        binding.tvNPlayersChosen.text = String.format(resources.getString(R.string.choose_players_hint_tail_combined), 0)
 
         binding.btnBackFromStartGame.setOnClickListener {finish()}
         binding.ivAdd.setOnClickListener{
-            val addedPlayerName = binding.etAdd.text.toString()
+            val addedPlayerName = binding.etAdd.text.toString().trim()
             if(addedPlayerName == "")
-                Toast.makeText(applicationContext, "A player must have a name.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, R.string.player_empty, Toast.LENGTH_SHORT).show()
             else if(adapter.doesThisPlayerExist(addedPlayerName))
-                Toast.makeText(applicationContext, "This player already exists.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, R.string.player_exists, Toast.LENGTH_SHORT).show()
             else {
                 binding.etAdd.text.clear()
                 adapter.addPlayer(Player(addedPlayerName, true))
@@ -42,7 +52,7 @@ class StartGameActivity : AppCompatActivity() {
 
         binding.btnNextFromStartGame.setOnClickListener {
             if (adapter.getNChosen() < 3){
-                Toast.makeText(applicationContext, "Please check at least 3 players.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, R.string.not_enough, Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -55,15 +65,22 @@ class StartGameActivity : AppCompatActivity() {
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+        editor.apply{
+            val commaSeparatedPlayerNames = adapter.getAllPlayersNames().joinToString(separator = ",")
+            putString("commaSeparatedPlayersNames", commaSeparatedPlayerNames)
+            apply()
+        }
+    }
+
     fun updatetvNPlayersChosen(nChosen: Int){
-        val mainText = "$nChosen players chosen"
-        val tail = "(minimum 3)"
         if(nChosen < 3){
-            binding.tvNPlayersChosen.text = mainText + tail
+            binding.tvNPlayersChosen.text = String.format(resources.getString(R.string.choose_players_hint_tail_combined), nChosen)
             binding.tvNPlayersChosen.setTextColor(Color.parseColor("#4e0707"))
         }
         else{
-            binding.tvNPlayersChosen.text = mainText
+            binding.tvNPlayersChosen.text = String.format(resources.getString(R.string.choose_players_hint), nChosen)
             binding.tvNPlayersChosen.setTextColor(Color.parseColor("#00ff00"))
         }
     }

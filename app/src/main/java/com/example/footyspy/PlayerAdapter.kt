@@ -80,4 +80,8 @@ class PlayerAdapter (
     fun doesThisPlayerExist(name : String) : Boolean{
         return players.any {player ->  player.name == name}
     }
+
+    fun getAllPlayersNames() : MutableList<String>{
+        return players.map {it.name}.toMutableList()
+    }
 }

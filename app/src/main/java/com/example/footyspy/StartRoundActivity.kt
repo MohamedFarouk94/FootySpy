@@ -30,12 +30,13 @@ class StartRoundActivity : AppCompatActivity() {
             val x = binding.etNSpies.text.toString().toInt() - 1
             binding.etNSpies.setText(max(x, 1).toString())
         }
-        binding.tvRoundTitle.text = "Round #${game.nRoundsPlayed + 1}"
-        binding.tvSetNSPiesHint.text = "We're ${game.nPlayers} so number of spies should be between 1 and ${game.maxNumberOfSpies}."
+        binding.tvRoundTitle.text = String.format(resources.getString(R.string.round_n), game.nRoundsPlayed + 1)
+        binding.tvSetNSPiesHint.text = String.format((resources.getString(R.string.set_n_spies_hint)),game.nPlayers, game.maxNumberOfSpies)
 
         binding.btnNextFromStartRound.setOnClickListener {
-            val round = Round(game, binding.etNSpies.text.toString().toInt(),
-                findViewById<RadioButton>(binding.rgRoundTopic.checkedRadioButtonId).text.toString())
+            val round = Round(game,
+                binding.etNSpies.text.toString().toInt(),
+                findViewById<RadioButton>(binding.rgRoundTopic.checkedRadioButtonId).text.toString().lowercase().replace(" ", "_"))
             Log.d("Round", "${round.nSpies} --- ${round.topic}")
             Intent(this, RevealingNameActivity::class.java).also {
                 it.putExtra("EXTRA_ROUND", round)

@@ -13,7 +13,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Choose who will play."
+        android:text="@string/choose_players"
         android:textSize="30sp"
         android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="0 players chosen (minimum 3)"
+        android:text="@string/choose_players_hint"
         android:textSize="20sp"
         android:textColor="#4e0707"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,7 @@
         android:layout_marginEnd="74dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#4e0707"
-        android:text="Back"
+        android:text="@string/back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnNextFromStartGame"
         app:layout_constraintHorizontal_bias="0.5"
@@ -54,7 +54,7 @@
         android:layout_marginEnd="73dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#4e0707"
-        android:text="Next"
+        android:text="@string/next"
         android:clickable="false"
         android:focusable="false"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -70,11 +70,12 @@
         android:layout_marginBottom="59dp"
         android:ems="10"
         android:inputType="text"
-        android:hint="Add player"
+        android:hint="@string/add_player"
         android:textColor="#ffffff"
         android:textColorHint="#828282"
         app:layout_constraintBottom_toTopOf="@+id/btnBackFromStartGame"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints="" />
 
     <ImageView
         android:id="@+id/ivAdd"
@@ -86,7 +87,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/etAdd"
         app:layout_constraintTop_toTopOf="@+id/etAdd"
-        app:srcCompat="@drawable/ic_add_foreground" />
+        app:srcCompat="@drawable/ic_add_foreground"
+        android:contentDescription="@string/hello_world" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPlayers"
