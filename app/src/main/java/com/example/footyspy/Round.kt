@@ -14,10 +14,7 @@ class Round (
     private val listOfSpies : MutableList<Player> = mutableListOf()
 ) : Serializable {
     fun startRound(context: Context){
-        for (player in game.chosenPlayers) {
-            player.isSpy = false
-            player.nQuestions = 0
-        }
+        for (player in game.chosenPlayers) player.resetForRound()
         setSpies()
         setSecret(context, topic)
     }

@@ -34,6 +34,11 @@
     <string name="above_image">Hello %1$s, scratch the image below gently to reveal the secret name.\nBe careful that no one looks!</string>
     <string name="below_image">Only if you\'re sure that you get the name\n(Or if you\'re the spy!)\nPress Next!\nAnd give the phone to %1$s</string>
 
+    <!--Questions Activity-->
+    <string name="above_questions">Hello %1$s, choose %2$d suspect spies to ask!</string>
+    <string name="below_questions">After you do, click Next and give the phone to %1$s
+        or you can click We Got Them if majority voted that they got those spies!</string>
+
     <!--Toasts-->
     <string name="player_empty">A player must have a name.</string>
     <string name="player_exists">This player already exists.</string>

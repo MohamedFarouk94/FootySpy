@@ -32,6 +32,7 @@ class StartGameActivity : AppCompatActivity() {
         var players = commaSeparatedPlayersNames?.split(",")?.map {Player(it, false)}?.toMutableList()
         if(players == null) players = mutableListOf()
         if(players.size == 1 && players[0].name == "") players = mutableListOf()
+
         adapter = PlayerAdapter(players, this)
         binding.rvPlayers.adapter = adapter
         binding.rvPlayers.layoutManager = LinearLayoutManager(this)

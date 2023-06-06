@@ -1,5 +1,6 @@
 package com.example.footyspy
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
@@ -37,7 +38,14 @@ class RevealingNameActivity : AppCompatActivity() {
 
         binding.btnNextFromRevealingName.setOnClickListener {
             currentPlayerId++
-            restartScreen(view, round, bitmap)
+            if(currentPlayerId < round.game.nPlayers) restartScreen(view, round, bitmap)
+            else{
+                Intent(this, QuestionsActivity::class.java).also {
+                    it.putExtra("EXTRA_ROUND", round)
+                    startActivity(it)
+                    finish()
+                }
+            }
         }
     }
 

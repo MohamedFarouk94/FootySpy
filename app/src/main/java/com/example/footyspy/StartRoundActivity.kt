@@ -24,11 +24,11 @@ class StartRoundActivity : AppCompatActivity() {
         binding.btnBackFromStartRound.setOnClickListener { finish() }
         binding.ivRight.setOnClickListener{
             val x = binding.etNSpies.text.toString().toInt() + 1
-            binding.etNSpies.setText(min(x, game.maxNumberOfSpies).toString())
+            binding.etNSpies.text = min(x, game.maxNumberOfSpies).toString()
         }
         binding.ivLeft.setOnClickListener{
             val x = binding.etNSpies.text.toString().toInt() - 1
-            binding.etNSpies.setText(max(x, 1).toString())
+            binding.etNSpies.text = max(x, 1).toString()
         }
         binding.tvRoundTitle.text = String.format(resources.getString(R.string.round_n), game.nRoundsPlayed + 1)
         binding.tvSetNSPiesHint.text = String.format((resources.getString(R.string.set_n_spies_hint)),game.nPlayers, game.maxNumberOfSpies)

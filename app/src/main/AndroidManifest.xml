@@ -25,6 +25,7 @@
         <activity android:name=".ReadOnlyActivity"/>
         <activity android:name=".StartRoundActivity"/>
         <activity android:name=".RevealingNameActivity"/>
+        <activity android:name=".QuestionsActivity"/>
     </application>
 
 </manifest>
