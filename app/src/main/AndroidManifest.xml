@@ -26,6 +26,7 @@
         <activity android:name=".StartRoundActivity"/>
         <activity android:name=".RevealingNameActivity"/>
         <activity android:name=".QuestionsActivity"/>
+        <activity android:name=".RevealingSpiesActivity"/>
     </application>
 
 </manifest>

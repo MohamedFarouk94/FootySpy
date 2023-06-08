@@ -11,13 +11,20 @@ class Round (
     val topic: String,
     val index: Int = game.nRoundsPlayed + 1,
     var secretWord: String = "",
-    private val listOfSpies : MutableList<Player> = mutableListOf()
+    val listOfSpies : MutableList<Player> = mutableListOf()
 ) : Serializable {
     fun startRound(context: Context){
         for (player in game.chosenPlayers) player.resetForRound()
         setSpies()
         setSecret(context, topic)
     }
+
+    fun updateScore(investigator: Player, chosenToBeSpies: List<Player>){
+        for(player in chosenToBeSpies) if(listOfSpies.contains(player)) investigator.addScoreBy(1)
+        for(player in listOfSpies) if(player != investigator && !chosenToBeSpies.contains(player)) player.addScoreBy(1)
+    }
+
+    fun areAllAsked(): Boolean = game.chosenPlayers.all { player -> player.nQuestions > 0 }
 
     private fun setSpies(){
         var ids = (0 until game.nPlayers).toMutableList()
