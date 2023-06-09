@@ -1,1 +1,5 @@
-Brazil, Argentina, France, Germany, Italy, Egypt
+Brazil, Argentina, Uruguay,
+France, Germany, Italy, Spain, England, Belgium, Portugal, Netherlands,
+Egypt, Senegal, Cameroon, Morocco, Tunisia, Algeria, South Africa, Ghana, Ivory Coast,
+Japan, South Korea, Saudi Arabia, Qatar,
+United States, Mexico

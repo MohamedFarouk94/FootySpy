@@ -11,7 +11,8 @@ class Round (
     val topic: String,
     val index: Int = game.nRoundsPlayed + 1,
     var secretWord: String = "",
-    val listOfSpies : MutableList<Player> = mutableListOf()
+    val listOfSpies : MutableList<Player> = mutableListOf(),
+    var listOfChoices: MutableList<String> = mutableListOf()
 ) : Serializable {
     fun startRound(context: Context){
         for (player in game.chosenPlayers) player.resetForRound()
@@ -43,7 +44,9 @@ class Round (
         val bufferedReader: BufferedReader = context.assets.open("$topic.txt").bufferedReader()
         val commaSeparatedWords = bufferedReader.use { it.readText() }
         val listOfWords = commaSeparatedWords.split(",")
-        secretWord = listOfWords.random().trim()
+        val listOfWordsShuffled = listOfWords.shuffled()
+        secretWord = listOfWordsShuffled[0]
+        listOfChoices = listOfWords.slice(1..12).toMutableList()
         Log.d("SecretWord", secretWord)
     }
 }

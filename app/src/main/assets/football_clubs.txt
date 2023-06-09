@@ -1,5 +1,6 @@
 Real Madrid, FC Barcelona, Atletico Madrid, Sevilla, Valencia, Villareal,
-Man United, Man City, Liverpool, Arsenal, Tottenham, Chelsea, Leicester City, Newcastle Utd,
+Man United, Man City, Liverpool, Arsenal, Tottenham, Chelsea, Leicester City,
+Newcastle Utd, West ham Utd, Aston Villa,
 AC Milan, Inter Milan, Juventus, AS Rome, Lazio, Napoli,
 Bayern Munich, Borussia Dortmund,
 PSG, Olympique Marseille, Lyon,

@@ -51,7 +51,7 @@ class QuestionsActivity : AppCompatActivity() {
             }
 
             currentPlayerId = (currentPlayerId + 1) % round.game.nPlayers
-            restartScreenInvestigation(round)
+            if(investigation) restartScreenInvestigation(round) else restartScreenDeciding(round)
         }
 
         binding.btnWeGotThem.setOnClickListener {
