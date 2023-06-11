@@ -35,9 +35,23 @@
     <string name="below_image">Only if you\'re sure that you get the name\n(Or if you\'re the spy!)\nPress Next!\nAnd give the phone to %1$s</string>
 
     <!--Questions Activity-->
-    <string name="above_questions">Hello %1$s, choose %2$d suspect spies to ask!</string>
-    <string name="below_questions">After you do, click Next and give the phone to %1$s
+    <string name="above_questions_investigations">Hello %1$s, choose %2$d suspect spies to ask!</string>
+    <string name="below_questions_investigations">After you do, click Next and give the phone to %1$s
         or you can click We Got Them if majority voted that they got those spies!</string>
+    <string name="above_questions_deciding">Hey, %1$s, Who are the spies? choose %2$d that you suspect.</string>
+    <string name="below_questions_deciding">After deciding, click Next and give the phone to %1$s</string>
+    <string name="below_questions_deciding_final">After deciding, click Next to discover the truth.</string>
+
+    <!--Uncovering Activity-->
+    <string name="above_cover_spy">The time has come.\nIf you want to know who are the spies, click the button below.</string>
+    <string name="above_cover_secret">The time has come, again!.\nIf you want to know what was the secret word, click the button below.</string>
+    <string name="below_cover_spy">Click Next so the spies can guess what was the secret word.</string>
+    <string name="below_cover_secret">Click Next to show the score.</string>
+
+    <!--Guess Word Activity-->
+    <string name="above_choices">Hey %1$s, Guess the secret word!</string>
+    <string name="below_choices">After choosing, give the phone to your brother or sister in spying, %1$s.</string>
+    <string name="below_choices_final">After choosing, click Next to reveal the secret word.</string>
 
     <!--Toasts-->
     <string name="player_empty">A player must have a name.</string>

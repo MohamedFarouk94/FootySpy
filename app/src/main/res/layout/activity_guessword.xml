@@ -15,7 +15,85 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:rowCount="2">
+        app:rowCount="2"
+        android:padding="16dp"
+        app:useDefaultMargins="true">
+
+        <TextView android:id="@+id/tvChoice0" android:layout_width="170dp" android:gravity="center" android:textColor="#000000"
+            android:text="@string/hello_world" android:textSize="18sp" android:background="@drawable/rounded_view_unselected"
+            android:layout_height="44dp"/>
+        <TextView android:id="@+id/tvChoice1" android:layout_width="170dp" android:gravity="center" android:textColor="#000000"
+            android:text="@string/hello_world" android:textSize="18sp" android:background="@drawable/rounded_view_unselected"
+            android:layout_height="44dp"/>
+        <TextView android:id="@+id/tvChoice2" android:layout_width="170dp" android:gravity="center" android:textColor="#000000"
+            android:text="@string/hello_world" android:textSize="18sp" android:background="@drawable/rounded_view_unselected"
+            android:layout_height="44dp"/>
+        <TextView android:id="@+id/tvChoice3" android:layout_width="170dp" android:gravity="center" android:textColor="#000000"
+            android:text="@string/hello_world" android:textSize="18sp" android:background="@drawable/rounded_view_unselected"
+            android:layout_height="44dp"/>
+        <TextView android:id="@+id/tvChoice4" android:layout_width="170dp" android:gravity="center" android:textColor="#000000"
+            android:text="@string/hello_world" android:textSize="18sp" android:background="@drawable/rounded_view_unselected"
+            android:layout_height="44dp"/>
+        <TextView android:id="@+id/tvChoice5" android:layout_width="170dp" android:gravity="center" android:textColor="#000000"
+            android:text="@string/hello_world" android:textSize="18sp" android:background="@drawable/rounded_view_unselected"
+            android:layout_height="44dp"/>
+        <TextView android:id="@+id/tvChoice6" android:layout_width="170dp" android:gravity="center" android:textColor="#000000"
+            android:text="@string/hello_world" android:textSize="18sp" android:background="@drawable/rounded_view_unselected"
+            android:layout_height="44dp"/>
+        <TextView android:id="@+id/tvChoice7" android:layout_width="170dp" android:gravity="center" android:textColor="#000000"
+            android:text="@string/hello_world" android:textSize="18sp" android:background="@drawable/rounded_view_unselected"
+            android:layout_height="44dp"/>
+        <TextView android:id="@+id/tvChoice8" android:layout_width="170dp" android:gravity="center" android:textColor="#000000"
+            android:text="@string/hello_world" android:textSize="18sp" android:background="@drawable/rounded_view_unselected"
+            android:layout_height="44dp"/>
+        <TextView android:id="@+id/tvChoice9" android:layout_width="170dp" android:gravity="center" android:textColor="#000000"
+            android:text="@string/hello_world" android:textSize="18sp" android:background="@drawable/rounded_view_unselected"
+            android:layout_height="44dp"/>
+        <TextView android:id="@+id/tvChoice10" android:layout_width="170dp" android:gravity="center" android:textColor="#000000"
+            android:text="@string/hello_world" android:textSize="18sp" android:background="@drawable/rounded_view_unselected"
+            android:layout_height="44dp"/>
+        <TextView android:id="@+id/tvChoice11" android:layout_width="170dp" android:gravity="center" android:textColor="#000000"
+            android:text="@string/hello_world" android:textSize="18sp" android:background="@drawable/rounded_view_unselected"
+            android:layout_height="44dp"/>
+
 
     </androidx.gridlayout.widget.GridLayout>
+
+    <Button
+        android:id="@+id/btnNextFromGuessWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/next"
+        android:backgroundTint="#4e0707"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAboveChoices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hey, XXX, guess what was the secret word."
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/glChoices"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvBelowChoices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="After you choose, click Next and give the phone to your brother or sister in spying, YYY."
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnNextFromGuessWord"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/glChoices" />
 </androidx.constraintlayout.widget.ConstraintLayout>

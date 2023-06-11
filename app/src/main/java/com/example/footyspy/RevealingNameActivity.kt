@@ -56,7 +56,7 @@ class RevealingNameActivity : AppCompatActivity() {
         eraser = BitmapEraser(mutableBitmap.width.toInt(), mutableBitmap.height.toInt())
         val currentPlayerName = round.game.chosenPlayers[currentPlayerId % nPlayers].name
         val nextPlayerName = round.game.chosenPlayers[(currentPlayerId + 1) % nPlayers].name
-        val secretName = if(round.game.chosenPlayers[currentPlayerId % nPlayers].isSpy) "SPY @_@" else round.secretWord
+        val secretName = if(round.game.chosenPlayers[currentPlayerId % nPlayers].isSpy) "SPY \uD83D\uDE20" else round.secretWord
 
         binding.tvAboveImage.text = String.format(resources.getString(R.string.above_image), currentPlayerName)
         binding.tvBelowImage.text = String.format(resources.getString(R.string.below_image), nextPlayerName)

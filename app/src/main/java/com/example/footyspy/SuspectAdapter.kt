@@ -2,6 +2,7 @@ package com.example.footyspy
 
 import android.app.Application
 import android.content.Context
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,15 +31,16 @@ class SuspectAdapter(
 
     override fun onBindViewHolder(holder: SuspectViewHolder, position: Int) {
         holder.tvSuspect.text = "${suspectPlayers[position].name} (${suspectPlayers[position].nQuestions})"
+        holder.tvSuspect.setTextSize(TypedValue.COMPLEX_UNIT_SP, GUIOperations.getAdjustedTextSize(suspectPlayers[position].name))
 
         holder.tvSuspect.setOnClickListener{
             if(askedFlags[holder.adapterPosition]) {
-                holder.tvSuspect.background = ContextCompat.getDrawable(holder.context, R.drawable.rounded_view_unselected)
+                GUIOperations.unselectTV(holder.tvSuspect, myParent)
                 nAsked--
                 askedFlags[holder.adapterPosition] = false
             }
             else if(nAsked < nSpies){
-                holder.tvSuspect.background = ContextCompat.getDrawable(holder.context, R.drawable.rounded_view_selected)
+                GUIOperations.selectTV(holder.tvSuspect, myParent)
                 nAsked++
                 askedFlags[holder.adapterPosition] = true
             }

@@ -10,7 +10,7 @@
         android:id="@+id/tvUncover"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:text="3"
+        android:text=""
         android:textColor="#ffffff"
         android:textSize="100sp"
         android:gravity="center"

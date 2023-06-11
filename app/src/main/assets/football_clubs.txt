@@ -1,8 +1,11 @@
 Real Madrid, FC Barcelona, Atletico Madrid, Sevilla, Valencia, Villareal,
 Man United, Man City, Liverpool, Arsenal, Tottenham, Chelsea, Leicester City,
-Newcastle Utd, West ham Utd, Aston Villa,
-AC Milan, Inter Milan, Juventus, AS Rome, Lazio, Napoli,
-Bayern Munich, Borussia Dortmund,
+Newcastle Utd, West ham Utd, Aston Villa, Everton, Brighton,
+AC Milan, Inter Milan, Juventus, AS Rome, Lazio, Napoli, Atalanta,
+Bayern Munich, Borussia Dortmund, Leipzig FC, Bayer Leverkusen, Eintracht Frankfurt,
 PSG, Olympique Marseille, Lyon,
 Boca Juniors, River Plate,
-Al-Ahly, Zamalek
+Al-Ahly, Zamalek, Al-Ismaily, Al-Ittihad of Alexandria, Al-Masry, Haras El-Hodoud, Enppi, Al-Mokawlon Al-Arab,
+Taraji Tunisia, Wydad FC, Rajaa FC, Mamelody Sundowns, Al-Hilal (Sudan),
+Al-Hilal (KSA), Al-Nassr, Al-Ittihad (KSA),
+Los Angelos Galaxy, Inter Miami CF

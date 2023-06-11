@@ -9,7 +9,7 @@ class Round (
     val game: Game,
     val nSpies: Int,
     val topic: String,
-    val index: Int = game.nRoundsPlayed + 1,
+    var finalStage: Boolean = false,
     var secretWord: String = "",
     val listOfSpies : MutableList<Player> = mutableListOf(),
     var listOfChoices: MutableList<String> = mutableListOf()
@@ -20,10 +20,14 @@ class Round (
         setSecret(context, topic)
     }
 
-    fun updateScore(investigator: Player, chosenToBeSpies: List<Player>){
+    fun updateScoreInvestigate(investigator: Player, chosenToBeSpies: List<Player>){
         for(player in chosenToBeSpies) if(listOfSpies.contains(player)) investigator.addScoreBy(1)
         for(player in listOfSpies) if(player != investigator && !chosenToBeSpies.contains(player)) player.addScoreBy(1)
     }
+
+    fun updateScoreGuess(guesser: Player, guess: String){if(guess == secretWord) guesser.addScoreBy(3)}
+
+    fun updateTotalScore(){for(player in game.chosenPlayers) player.updateTotalScore()}
 
     fun areAllAsked(): Boolean = game.chosenPlayers.all { player -> player.nQuestions > 0 }
 
@@ -43,10 +47,11 @@ class Round (
 
         val bufferedReader: BufferedReader = context.assets.open("$topic.txt").bufferedReader()
         val commaSeparatedWords = bufferedReader.use { it.readText() }
-        val listOfWords = commaSeparatedWords.split(",")
+        val listOfWords = commaSeparatedWords.split(",").map{word -> word.trim()}
         val listOfWordsShuffled = listOfWords.shuffled()
         secretWord = listOfWordsShuffled[0]
-        listOfChoices = listOfWords.slice(1..12).toMutableList()
+        listOfChoices = listOfWordsShuffled.slice(1..12).toMutableList()
+        listOfChoices[(0..11).random()] = secretWord
         Log.d("SecretWord", secretWord)
     }
 }

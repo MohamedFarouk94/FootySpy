@@ -39,10 +39,10 @@ class QuestionsActivity : AppCompatActivity() {
             if(investigation)
                 try {for (player in adapter.getAskedPlayers()) player.asked()} catch (_: Exception){}
             else
-                round.updateScore(round.game.chosenPlayers[currentPlayerId], adapter.getAskedPlayers())
+                round.updateScoreInvestigate(round.game.chosenPlayers[currentPlayerId], adapter.getAskedPlayers())
 
             if(!investigation && currentPlayerId == round.game.nPlayers - 1){
-                Intent(this, RevealingSpiesActivity::class.java).also {
+                Intent(this, UncoveringActivity::class.java).also {
                     it.putExtra("EXTRA_ROUND", round)
                     startActivity(it)
                     finish()
@@ -78,8 +78,8 @@ class QuestionsActivity : AppCompatActivity() {
         val nextPlayerId = (currentPlayerId + 1) % round.game.nPlayers
         val currentPlayerName = round.game.chosenPlayers[currentPlayerId].name
         val nextPlayerName = round.game.chosenPlayers[nextPlayerId].name
-        binding.tvAboveQuestions.text = String.format(resources.getString(R.string.above_questions), currentPlayerName, round.nSpies)
-        binding.tvBelowQuestions.text = String.format(resources.getString(R.string.below_questions), nextPlayerName)
+        binding.tvAboveQuestions.text = GUIOperations.getString(R.string.above_questions_investigations, resources, currentPlayerName, round.nSpies)
+        binding.tvBelowQuestions.text = GUIOperations.getString(R.string.below_questions_investigations, resources, nextPlayerName)
         adapter = SuspectAdapter(round.game.chosenPlayers.filter { player -> player.name != currentPlayerName }.sortedBy{player -> -player.nQuestions}.toMutableList(),
             round.nSpies, this)
         binding.rvSuspectPlayers.adapter = adapter
@@ -90,14 +90,14 @@ class QuestionsActivity : AppCompatActivity() {
         val nextPlayerId = (currentPlayerId + 1) % round.game.nPlayers
         val currentPlayerName = round.game.chosenPlayers[currentPlayerId].name
         val nextPlayerName = round.game.chosenPlayers[nextPlayerId].name
-        binding.tvAboveQuestions.text = "Hey, $currentPlayerName, Who are the spies? choose ${round.nSpies} that you suspect."
+        binding.tvAboveQuestions.text = GUIOperations.getString(R.string.above_questions_deciding, resources, currentPlayerName, round.nSpies)
         binding.tvBelowQuestions.text =
             if(nextPlayerId != 0)
-                "After deciding, click Next and give the phone to $nextPlayerName"
+                GUIOperations.getString(R.string.below_questions_deciding, resources, nextPlayerName)
             else
-                "After deciding, click Next to discover the truth."
+                GUIOperations.getString(R.string.below_questions_deciding_final, resources)
 
-        adapter = SuspectAdapter(round.game.chosenPlayers.filter { player ->  player.name != currentPlayerName}.sortedBy { player ->  player.nQuestions}.toMutableList(),
+        adapter = SuspectAdapter(round.game.chosenPlayers.filter { player ->  player.name != currentPlayerName}.sortedBy { player ->  -player.nQuestions}.toMutableList(),
             round.nSpies, this)
         binding.rvSuspectPlayers.adapter = adapter
         binding.rvSuspectPlayers.layoutManager = LinearLayoutManager(this)
