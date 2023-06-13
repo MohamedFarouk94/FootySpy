@@ -30,8 +30,9 @@ class SuspectAdapter(
     }
 
     override fun onBindViewHolder(holder: SuspectViewHolder, position: Int) {
-        holder.tvSuspect.text = "${suspectPlayers[position].name} (${suspectPlayers[position].nQuestions})"
-        holder.tvSuspect.setTextSize(TypedValue.COMPLEX_UNIT_SP, GUIOperations.getAdjustedTextSize(suspectPlayers[position].name))
+        holder.tvSuspect.text = GUIOperations.getString(R.string.suspect, myParent.resources, suspectPlayers[position].name, suspectPlayers[position].nQuestions)
+        //"${suspectPlayers[position].name} (${suspectPlayers[position].nQuestions})"
+        // holder.tvSuspect.setTextSize(TypedValue.COMPLEX_UNIT_SP, GUIOperations.getAdjustedTextSize(suspectPlayers[position].name))
 
         holder.tvSuspect.setOnClickListener{
             if(askedFlags[holder.adapterPosition]) {
@@ -45,7 +46,7 @@ class SuspectAdapter(
                 askedFlags[holder.adapterPosition] = true
             }
             else{
-                Toast.makeText(myParent.applicationContext, "You cannot ask more than $nSpies players.", Toast.LENGTH_SHORT).show()
+                Toast(myParent).showCustomToast(GUIOperations.getString(R.string.already_n_spies, myParent.resources, nSpies), myParent)
             }
         }
     }
@@ -55,7 +56,7 @@ class SuspectAdapter(
     fun getNAsked(): Int = nAsked
 
     fun getAskedPlayers(): MutableList<Player>{
-        var askedPlayers = mutableListOf<Player>()
+        val askedPlayers = mutableListOf<Player>()
         for (i in 0 until suspectPlayers.size) if(askedFlags[i]) askedPlayers.add(suspectPlayers[i])
         return askedPlayers
     }

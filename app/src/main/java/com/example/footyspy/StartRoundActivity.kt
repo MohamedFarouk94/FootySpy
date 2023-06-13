@@ -1,5 +1,6 @@
 package com.example.footyspy
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -21,7 +22,9 @@ class StartRoundActivity : AppCompatActivity() {
 
         val game = intent.getSerializableExtra("EXTRA_GAME") as Game
 
-        binding.btnBackFromStartRound.setOnClickListener { finish() }
+        binding.btnBackFromStartRound.setOnClickListener {
+            AlertDialog.Builder(this).showCustomAlert(getString(R.string.back_alert), this) { finish() }
+        }
         binding.ivRight.setOnClickListener{
             val x = binding.etNSpies.text.toString().toInt() + 1
             binding.etNSpies.text = min(x, game.maxNumberOfSpies).toString()
@@ -30,8 +33,8 @@ class StartRoundActivity : AppCompatActivity() {
             val x = binding.etNSpies.text.toString().toInt() - 1
             binding.etNSpies.text = max(x, 1).toString()
         }
-        binding.tvRoundTitle.text = String.format(resources.getString(R.string.round_n), game.nRoundsPlayed + 1)
-        binding.tvSetNSPiesHint.text = String.format((resources.getString(R.string.set_n_spies_hint)),game.nPlayers, game.maxNumberOfSpies)
+        binding.tvRoundTitle.text = GUIOperations.getString(R.string.round_n, resources, game.nRoundsPlayed + 1)
+        binding.tvSetNSPiesHint.text = GUIOperations.getString(R.string.set_n_spies_hint, resources, game.nPlayers, game.maxNumberOfSpies)
 
         binding.btnNextFromStartRound.setOnClickListener {
             val round = Round(game,
@@ -41,7 +44,13 @@ class StartRoundActivity : AppCompatActivity() {
             Intent(this, RevealingNameActivity::class.java).also {
                 it.putExtra("EXTRA_ROUND", round)
                 startActivity(it)
+                finish()
             }
         }
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        AlertDialog.Builder(this).showCustomAlert(getString(R.string.back_alert), this) { finish() }
     }
 }

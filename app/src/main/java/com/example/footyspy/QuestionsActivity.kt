@@ -1,5 +1,6 @@
 package com.example.footyspy
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -28,11 +29,7 @@ class QuestionsActivity : AppCompatActivity() {
 
         binding.btnNextFromQuestions.setOnClickListener {
             if(adapter.getNAsked() < round.nSpies) {
-                Toast.makeText(
-                    applicationContext,
-                    "You have to choose ${round.nSpies} players before clicking next.",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast(this).showCustomToast(GUIOperations.getString(R.string.less_than_n_spies, resources, round.nSpies), this)
                 return@setOnClickListener
             }
 
@@ -58,19 +55,15 @@ class QuestionsActivity : AppCompatActivity() {
             if(!investigation) return@setOnClickListener
 
             if(!round.areAllAsked()){
-                Toast.makeText(
-                    applicationContext,
-                    "Cannot move to this stage without everyone being asked.",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast(this).showCustomToast(getString(R.string.cannot_move), this)
                 return@setOnClickListener
             }
-            currentPlayerId = 0
-            investigation = false
-            binding.btnWeGotThem.isClickable = false
-            binding.btnWeGotThem.isEnabled = false
-            binding.btnWeGotThem.setBackgroundColor(Color.parseColor("#808080"))
-            restartScreenDeciding(round)
+            AlertDialog.Builder(this).showCustomAlert(getString(R.string.majority_alert), this){
+                currentPlayerId = 0
+                investigation = false
+                GUIOperations.disableButton(binding.btnWeGotThem)
+                restartScreenDeciding(round)
+            }
         }
     }
 
@@ -101,6 +94,11 @@ class QuestionsActivity : AppCompatActivity() {
             round.nSpies, this)
         binding.rvSuspectPlayers.adapter = adapter
         binding.rvSuspectPlayers.layoutManager = LinearLayoutManager(this)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        AlertDialog.Builder(this).showCustomAlert(getString(R.string.back_alert), this) { finish() }
     }
 
 }

@@ -16,6 +16,7 @@
         android:text="@string/choose_players"
         android:textSize="30sp"
         android:textColor="#ffffff"
+        android:fontFamily="@font/cronus_italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,6 +30,7 @@
         android:text="@string/choose_players_hint"
         android:textSize="20sp"
         android:textColor="#4e0707"
+        android:fontFamily="@font/cronus_round"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvChoosePlayers" />
@@ -42,6 +44,9 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="#4e0707"
         android:text="@string/back"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/cronus_italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnNextFromStartGame"
         app:layout_constraintHorizontal_bias="0.5"
@@ -55,6 +60,9 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="#4e0707"
         android:text="@string/next"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/cronus_italic"
         android:clickable="false"
         android:focusable="false"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -81,14 +89,14 @@
         android:id="@+id/ivAdd"
         android:layout_width="52dp"
         android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/hello_world"
         app:layout_constraintBottom_toBottomOf="@+id/etAdd"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/rvPlayers"
         app:layout_constraintStart_toEndOf="@+id/etAdd"
         app:layout_constraintTop_toTopOf="@+id/etAdd"
-        app:srcCompat="@drawable/ic_add_foreground"
-        android:contentDescription="@string/hello_world" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_add_foreground" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPlayers"

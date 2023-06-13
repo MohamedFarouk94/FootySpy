@@ -3,10 +3,14 @@
     <string name="app_name">FootySpy</string>
     <string name="hello_world">Hello, World!</string>
     <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="eighteen">18</string>
 
     <!--Next & Back-->
     <string name="next">Next</string>
     <string name="back">Back</string>
+    <string name="handle_truth">I can handle the truth!</string>
 
     <!--Main Activity-->
     <string name="start_game">Start Game</string>
@@ -41,6 +45,7 @@
     <string name="above_questions_deciding">Hey, %1$s, Who are the spies? choose %2$d that you suspect.</string>
     <string name="below_questions_deciding">After deciding, click Next and give the phone to %1$s</string>
     <string name="below_questions_deciding_final">After deciding, click Next to discover the truth.</string>
+    <string name="suspect">%1$s (%2$d)</string>
 
     <!--Uncovering Activity-->
     <string name="above_cover_spy">The time has come.\nIf you want to know who are the spies, click the button below.</string>
@@ -53,8 +58,63 @@
     <string name="below_choices">After choosing, give the phone to your brother or sister in spying, %1$s.</string>
     <string name="below_choices_final">After choosing, click Next to reveal the secret word.</string>
 
+    <!--Score Activity-->
+    <string name="number_symbol">#</string>
+    <string name="player_name">Player name</string>
+    <string name="last_round">Last\nRound</string>
+    <string name="points">Pts</string>
+    <string name="another_round">Another Round</string>
+    <string name="end_game">End Game</string>
+
     <!--Toasts-->
     <string name="player_empty">A player must have a name.</string>
     <string name="player_exists">This player already exists.</string>
     <string name="not_enough">Please select at least 3 players.</string>
+    <string name="forbidden_character">A player name contains a forbidden character.</string>
+    <string name="less_than_n_spies">You have to choose %1$d players before clicking next.</string>
+    <string name="already_n_spies">"You cannot ask more than %1$d players."</string>
+    <string name="cannot_move">Cannot move to this stage without everyone being asked.</string>
+    <string name="have_to_choose">You have to choose before continuing.</string>
+    <string name="back_alert">Are you sure? All game data will be lost.</string>
+    <string name="majority_alert">Have majority really voted to finish the questions phase?</string>
+
+    <!--How To Play-->
+    <string name="how_to_play_content">
+        To play this game you\'ll need:\n
+        1. Only one phone.\n
+        2. Three or more cool friends. (Four or more is recommended)\n
+        \n
+        Play procedure:\n
+        1. Start round by determining number of spies (At least one and no more than half of the number of players) and the topic of the secret word (Football players, football clubs or national teams).\n
+        2. Players will take turns to scratch an image to reach the secret word or to find out that he/she\'s the spy.\n
+        3. Players will take turns asking each other yes/no questions about the secret word. In every turn, a player will choose n mates to ask where n is the number of spies.\n
+        4. When majority of the players vote to end the questions phase, every player will enter the players that he/she suspect to be the spies. After that, the game will reveal the actual spies.\n
+        5. At this stage, the revealed spies will have to guess what the secret word is.\n
+        6. After that, the score will be shown and you \'ll be asked if you want another round.\n
+        \n
+        Scoring system:\n
+        - A player who is not a spy successfully discovers a spy: 1 point per spy.\n
+        - A player who is a spy successfully discovers another spy: 1 point per spy.\n
+        - A player who is a spy successfully fools another player (The fooled player doesn\'t suspect him/her): 1 point per fooled player.\n
+        - A player who is a spy successfully gets the secret word: 3 points.
+    </string>
+
+    <!--Credits-->
+    <string name="credits_content">
+        This game is developed by Mohamed Farouk (Contact in the contact tab).\n
+        \n
+        Also thanks to my friends who gave me the idea, I \'ll mention Abdel Aziz \"Zizo\" Gad, Ali Amin, Mohamed \"Siko\" Mahmoud, Mohamed \"Koo\" Hasan and Mohamed \"Ahlawy\" Mahmoud.\n
+        \n
+        And a big credit to my beloved sister, Gehan Farouk, who designed the images in this game and is helping me now writing these words.
+    </string>
+
+    <!--Contact-->
+    <string name="contact_content">
+        Contact the developer:\n
+        Mail: mohamedfarouk1994@gmail.com\n
+        Twitter: @mohfarouk94\n
+        GitHup: MohamedFarouk94
+    </string>
+
+
 </resources>

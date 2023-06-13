@@ -42,9 +42,11 @@ class StartGameActivity : AppCompatActivity() {
         binding.ivAdd.setOnClickListener{
             val addedPlayerName = binding.etAdd.text.toString().trim()
             if(addedPlayerName == "")
-                Toast.makeText(applicationContext, R.string.player_empty, Toast.LENGTH_SHORT).show()
+                Toast(this).showCustomToast(getString(R.string.player_empty), this)
+            else if (addedPlayerName.toList().any { ch -> "!#?,&{}<>$+=`'\"".toList().contains(ch) })
+                Toast(this).showCustomToast(getString(R.string.forbidden_character), this)
             else if(adapter.doesThisPlayerExist(addedPlayerName))
-                Toast.makeText(applicationContext, R.string.player_exists, Toast.LENGTH_SHORT).show()
+                Toast(this).showCustomToast(getString(R.string.player_exists), this)
             else {
                 binding.etAdd.text.clear()
                 adapter.addPlayer(Player(addedPlayerName, true))
@@ -53,7 +55,7 @@ class StartGameActivity : AppCompatActivity() {
 
         binding.btnNextFromStartGame.setOnClickListener {
             if (adapter.getNChosen() < 3){
-                Toast.makeText(applicationContext, R.string.not_enough, Toast.LENGTH_SHORT).show()
+                Toast(this).showCustomToast(getString(R.string.not_enough), this)
                 return@setOnClickListener
             }
 
@@ -75,7 +77,7 @@ class StartGameActivity : AppCompatActivity() {
         }
     }
 
-    fun updatetvNPlayersChosen(nChosen: Int){
+    fun updateTVNPlayersChosen(nChosen: Int){
         if(nChosen < 3){
             binding.tvNPlayersChosen.text = String.format(resources.getString(R.string.choose_players_hint_tail_combined), nChosen)
             binding.tvNPlayersChosen.setTextColor(Color.parseColor("#4e0707"))

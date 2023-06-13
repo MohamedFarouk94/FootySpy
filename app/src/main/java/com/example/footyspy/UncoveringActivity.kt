@@ -1,9 +1,11 @@
 package com.example.footyspy
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
 import com.example.footyspy.databinding.ActivityUncoveringBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -47,6 +49,7 @@ class UncoveringActivity: AppCompatActivity() {
                     it.putExtra("EXTRA_ROUND", round)
                     startActivity(it)
                     finish()
+                    return@setOnClickListener
                 }
             }
 
@@ -59,8 +62,9 @@ class UncoveringActivity: AppCompatActivity() {
                delay(1000)
                binding.tvUncover.text = "1"
                delay(1000)
-               binding.tvUncover.textSize = 30f
+               binding.tvUncover.textSize = 40f
                binding.tvUncover.setTextColor(Color.parseColor("#4e0707"))
+               binding.tvUncover.background = getDrawable(R.drawable.toast_background)
                binding.tvUncover.text = cover
 
                GUIOperations.enableButton(binding.btnRevealingSpies)
@@ -71,5 +75,10 @@ class UncoveringActivity: AppCompatActivity() {
                jobDone = true
            }
         }
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        AlertDialog.Builder(this).showCustomAlert(getString(R.string.back_alert), this) { finish() }
     }
 }

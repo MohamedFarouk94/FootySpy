@@ -1,7 +1,5 @@
 package com.example.footyspy
 
-import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -66,7 +64,7 @@ class PlayerAdapter (
     private fun updatePlayersList(position: Int = -1, isChecked: Boolean = false){
         if(position != -1) players[position].isChecked = isChecked
         nChosen = players.count { player -> player.isChecked }
-        myParent.updatetvNPlayersChosen(nChosen)
+        myParent.updateTVNPlayersChosen(nChosen)
     }
 
     fun getChosenPlayers(): List<Player>{
@@ -78,10 +76,10 @@ class PlayerAdapter (
     }
 
     fun doesThisPlayerExist(name : String) : Boolean{
-        return players.any {player ->  player.name == name}
+        return players.any { player ->  player.name == name }
     }
 
     fun getAllPlayersNames() : MutableList<String>{
-        return players.map {it.name}.toMutableList()
+        return players.map { it.name }.toMutableList()
     }
 }

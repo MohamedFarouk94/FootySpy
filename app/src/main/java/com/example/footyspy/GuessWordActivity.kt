@@ -1,5 +1,6 @@
 package com.example.footyspy
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -7,6 +8,8 @@ import android.os.Bundle
 import android.util.Log
 import android.util.TypedValue.COMPLEX_UNIT_SP
 import android.widget.TextView
+import android.widget.Toast
+import android.widget.Toast.LENGTH_SHORT
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.footyspy.databinding.ActivityGuesswordBinding
@@ -42,7 +45,10 @@ class GuessWordActivity: AppCompatActivity() {
         }
 
         binding.btnNextFromGuessWord.setOnClickListener {
-            if(chosenAnswer == "NOT_SELECTED") return@setOnClickListener // Toast
+            if(chosenAnswer == "NOT_SELECTED") {
+                Toast(this).showCustomToast(getString(R.string.have_to_choose), this)
+                return@setOnClickListener
+            }
             round.updateScoreGuess(round.listOfSpies[currentSpyID], chosenAnswer)
             currentSpyID++
             if(currentSpyID == round.nSpies) {
@@ -55,7 +61,6 @@ class GuessWordActivity: AppCompatActivity() {
             }
             restartScreen(round)
         }
-
         restartScreen(round)
     }
 
@@ -67,5 +72,10 @@ class GuessWordActivity: AppCompatActivity() {
         binding.tvBelowChoices.text =
             if(nextSpyID == round.nSpies) GUIOperations.getString(R.string.below_choices_final, resources)
             else GUIOperations.getString(R.string.below_choices, resources, round.listOfSpies[nextSpyID].name)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        AlertDialog.Builder(this).showCustomAlert(getString(R.string.back_alert), this) { finish() }
     }
 }

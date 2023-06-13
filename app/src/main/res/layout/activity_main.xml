@@ -4,63 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#4e0707">
 
-    <Button
-        android:id="@+id/btnStartGame"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:rotationX="0"
-        android:text="@string/start_game"
-        android:textSize="20sp"
-        android:backgroundTint="#4e0707"
-        app:layout_constraintBottom_toTopOf="@+id/btnHowToPlay"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <Button
-        android:id="@+id/btnHowToPlay"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:rotationX="0"
-        android:text="@string/how_to_play"
-        android:textSize="20sp"
-        android:backgroundTint="#4e0707"
-        app:layout_constraintBottom_toTopOf="@+id/btnCredits"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnStartGame" />
-
-    <Button
-        android:id="@+id/btnCredits"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:rotationX="0"
-        android:text="@string/credits"
-        android:textSize="20sp"
-        android:backgroundTint="#4e0707"
-        app:layout_constraintBottom_toTopOf="@+id/btnContact"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnHowToPlay" />
-
-    <Button
-        android:id="@+id/btnContact"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:rotationX="0"
-        android:text="@string/contact"
-        android:textSize="20sp"
-        android:backgroundTint="#4e0707"
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCredits" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498"
+        app:srcCompat="@mipmap/ic_presplash_foreground" />
 </androidx.constraintlayout.widget.ConstraintLayout>

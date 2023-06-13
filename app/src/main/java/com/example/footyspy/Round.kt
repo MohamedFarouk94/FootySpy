@@ -20,6 +20,11 @@ class Round (
         setSecret(context, topic)
     }
 
+    fun endRound(){
+        game.nRoundsPlayed++
+        game.previousSecretWords.add(secretWord)
+    }
+
     fun updateScoreInvestigate(investigator: Player, chosenToBeSpies: List<Player>){
         for(player in chosenToBeSpies) if(listOfSpies.contains(player)) investigator.addScoreBy(1)
         for(player in listOfSpies) if(player != investigator && !chosenToBeSpies.contains(player)) player.addScoreBy(1)
@@ -48,7 +53,8 @@ class Round (
         val bufferedReader: BufferedReader = context.assets.open("$topic.txt").bufferedReader()
         val commaSeparatedWords = bufferedReader.use { it.readText() }
         val listOfWords = commaSeparatedWords.split(",").map{word -> word.trim()}
-        val listOfWordsShuffled = listOfWords.shuffled()
+        val listOfWordsReduced = listOfWords.filter { word -> !game.previousSecretWords.contains(word) }
+        val listOfWordsShuffled = listOfWordsReduced.shuffled()
         secretWord = listOfWordsShuffled[0]
         listOfChoices = listOfWordsShuffled.slice(1..12).toMutableList()
         listOfChoices[(0..11).random()] = secretWord

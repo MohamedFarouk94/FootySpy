@@ -14,6 +14,11 @@ Harry Kane, Son Heung-min, Mido,
 Alan Shearer, Allan Saint-Maximin,
 Zlatan Ibrahimovic, Paolo Maldini, Alessandro Nesta,
 Javier Zanetti, Giuseppe Meazza, Diego Milito,
-Gigi Buffon, Fabio Cannavar, Andrea Pirlo, Alessandro Del Piero,
+Gigi Buffon, Fabio Cannavaro, Andrea Pirlo, Alessandro Del Piero,
 Kylian Mbappe, Edinson Cavani,
-Robert Lewandowski, Thomas Muller, Miroslav Klose, Philip Lahm
+Robert Lewandowski, Thomas Muller, Miroslav Klose, Philip Lahm,
+Mohamed Abu Treika, Mahmoud El-Khatib, Khaled Bibo, Sayed Moawed, Essam El-Hadary, Ahmed Hasan,
+Walid Souliman, Abdallah El-Said, Mohamed Barakat, Mohamed Zidan,
+Emad Meteab, Ahmed Fathy, Gilberto, Flavio,
+Shikabala, Hazem Emam (Sr.), Hasan Shehata, Amr Zaki, Hossam Hasan,
+Hussein El-Shahat, Mahmoud Kahraba

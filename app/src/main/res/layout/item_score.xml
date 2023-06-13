@@ -13,9 +13,10 @@
         android:layout_weight="1"
         android:background="@drawable/rounded_view_unselected"
         android:gravity="center"
-        android:text="3"
+        android:text="@string/three"
+        android:fontFamily="@font/cronus_round"
         android:textColor="#000000"
-        android:textSize="30sp" />
+        android:textSize="36sp" />
 
     <TextView
         android:id="@+id/tvPlayerNameScore"
@@ -26,9 +27,10 @@
         android:background="@drawable/rounded_view_unselected"
         android:gravity="center_vertical"
         android:padding="8dp"
-        android:text="Gehan"
+        android:text="@string/hello_world"
+        android:fontFamily="@font/cronus_round"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:textSize="28sp" />
 
     <TextView
         android:id="@+id/tvLastRoundScore"
@@ -38,9 +40,10 @@
         android:layout_weight="1"
         android:background="@drawable/rounded_view_unselected"
         android:gravity="center"
-        android:text="2"
+        android:text="@string/two"
+        android:fontFamily="@font/cronus_round"
         android:textColor="#000000"
-        android:textSize="30sp" />
+        android:textSize="36sp" />
 
     <TextView
         android:id="@+id/tvPoints"
@@ -49,9 +52,10 @@
         android:layout_weight="1"
         android:background="@drawable/rounded_view_unselected"
         android:gravity="center"
-        android:text="18"
+        android:text="@string/eighteen"
+        android:fontFamily="@font/cronus_round"
         android:textColor="#000000"
-        android:textSize="32sp"
+        android:textSize="36sp"
         android:textStyle="bold" />
 
 </LinearLayout>

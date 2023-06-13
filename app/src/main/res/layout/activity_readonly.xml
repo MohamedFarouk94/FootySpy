@@ -10,21 +10,27 @@
         android:id="@+id/textView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="Here will be a how to play, credits or contact page."
-        android:textSize="40sp"
+        android:text="@string/hello_world"
+        android:textSize="25sp"
+        android:padding="16dp"
         android:textColor="#4e0707"
+        android:fontFamily="@font/cronus_round"
         android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/btnBackFromReadOnly"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:scrollbars="vertical"/>
 
     <Button
         android:id="@+id/btnBackFromReadOnly"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#4e0707"
-        android:text="Back"
+        android:text="@string/back"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/cronus_round"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

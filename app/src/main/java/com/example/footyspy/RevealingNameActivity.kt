@@ -1,17 +1,14 @@
 package com.example.footyspy
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
-import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.footyspy.databinding.ActivityRevealingnameBinding
-import java.lang.Float.max
-import java.lang.Float.min
 
 class RevealingNameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRevealingnameBinding
@@ -30,7 +27,7 @@ class RevealingNameActivity : AppCompatActivity() {
         val round = intent.getSerializableExtra("EXTRA_ROUND") as Round
         round.startRound(this)
 
-        val bitmap: Bitmap = BitmapFactory.decodeResource(this.resources, R.mipmap.bmp_cat_foreground)
+        val bitmap: Bitmap = BitmapFactory.decodeResource(this.resources, R.mipmap.ic_scratch_foreground)
         val mutableBitmap : Bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true)
         binding.ivScratch.setImageBitmap(mutableBitmap)
         val eraser: BitmapEraser = BitmapEraser(mutableBitmap.width.toInt(), mutableBitmap.height.toInt())
@@ -47,6 +44,10 @@ class RevealingNameActivity : AppCompatActivity() {
                 }
             }
         }
+
+        binding.btnBackFromRevealingName.setOnClickListener {
+            AlertDialog.Builder(this).showCustomAlert(getString(R.string.back_alert), this) { finish() }
+        }
     }
 
     private fun restartScreen(view: ConstraintLayout, round: Round, bitmap: Bitmap){
@@ -56,12 +57,13 @@ class RevealingNameActivity : AppCompatActivity() {
         eraser = BitmapEraser(mutableBitmap.width.toInt(), mutableBitmap.height.toInt())
         val currentPlayerName = round.game.chosenPlayers[currentPlayerId % nPlayers].name
         val nextPlayerName = round.game.chosenPlayers[(currentPlayerId + 1) % nPlayers].name
-        val secretName = if(round.game.chosenPlayers[currentPlayerId % nPlayers].isSpy) "SPY \uD83D\uDE20" else round.secretWord
+        val secretName = if(round.game.chosenPlayers[currentPlayerId % nPlayers].isSpy) "Spy! \uD83D\uDE20" else round.secretWord
+        val textColor = if(round.game.chosenPlayers[currentPlayerId % nPlayers].isSpy) "#4e0707" else "#000000"
 
-        binding.tvAboveImage.text = String.format(resources.getString(R.string.above_image), currentPlayerName)
-        binding.tvBelowImage.text = String.format(resources.getString(R.string.below_image), nextPlayerName)
+        binding.tvAboveImage.text = GUIOperations.getString(R.string.above_image, resources, currentPlayerName)
+        binding.tvBelowImage.text = GUIOperations.getString(R.string.below_image, resources, nextPlayerName)
         binding.tvSecret.text = secretName
-
+        binding.tvSecret.setTextColor(Color.parseColor(textColor))
 
         binding.ivScratch.post {
             xRatio = mutableBitmap.width.toFloat() / binding.ivScratch.width.toFloat()
@@ -77,5 +79,10 @@ class RevealingNameActivity : AppCompatActivity() {
             binding.ivScratch.setImageBitmap(mutableBitmap)
             true
         }
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        AlertDialog.Builder(this).showCustomAlert(getString(R.string.back_alert), this) { finish() }
     }
 }

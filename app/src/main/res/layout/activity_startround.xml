@@ -13,6 +13,9 @@
         android:layout_marginEnd="72dp"
         android:layout_marginBottom="16dp"
         android:text="@string/next"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/cronus_italic"
         android:backgroundTint="#4e0707"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -24,6 +27,9 @@
         android:layout_marginStart="72dp"
         android:layout_marginBottom="16dp"
         android:text="@string/back"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/cronus_italic"
         android:backgroundTint="#4e0707"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -36,6 +42,7 @@
         android:text="@string/round_n"
         android:textColor="#ffffff"
         android:textSize="40sp"
+        android:fontFamily="@font/cronus_italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -48,7 +55,8 @@
         android:layout_marginTop="80dp"
         android:text="@string/set_n_spies"
         android:textColor="#ffffff"
-        android:textSize="18sp"
+        android:textSize="24sp"
+        android:fontFamily="@font/cronus_italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvRoundTitle" />
 
@@ -59,7 +67,8 @@
         android:layout_marginStart="16dp"
         android:text="@string/set_n_spies_hint"
         android:textColor="#ffffff"
-        android:textSize="14sp"
+        android:textSize="20sp"
+        android:fontFamily="@font/cronus_round"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSetNSpies" />
 
@@ -85,7 +94,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:ems="1"
-            android:text="1"
+            android:text="@string/one"
             android:gravity="center"
             android:textColor="#ffffff"/>
 
@@ -112,6 +121,8 @@
             android:layout_height="wrap_content"
             android:text="@string/football_players"
             android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:fontFamily="@font/cronus_round"
             android:checked="true"/>
 
         <RadioButton
@@ -119,14 +130,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/football_clubs"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:fontFamily="@font/cronus_round"/>
 
         <RadioButton
             android:id="@+id/rbNationalTeams"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/national_teams"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:fontFamily="@font/cronus_round"/>
 
     </RadioGroup>
 
@@ -138,7 +153,8 @@
         android:layout_marginBottom="16dp"
         android:text="@string/choose_round_topic"
         android:textColor="#ffffff"
-        android:textSize="18sp"
+        android:textSize="24sp"
+        android:fontFamily="@font/cronus_italic"
         app:layout_constraintBottom_toTopOf="@+id/rgRoundTopic"
         app:layout_constraintStart_toStartOf="parent" />
 
