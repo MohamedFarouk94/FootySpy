@@ -21,15 +21,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity"/>
-        <activity android:name=".StartGameActivity"/>
-        <activity android:name=".ReadOnlyActivity"/>
-        <activity android:name=".StartRoundActivity"/>
-        <activity android:name=".RevealingNameActivity"/>
-        <activity android:name=".QuestionsActivity"/>
-        <activity android:name=".UncoveringActivity"/>
-        <activity android:name=".GuessWordActivity"/>
-        <activity android:name=".ScoreActivity"/>
+        <activity android:name=".HomeActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".StartGameActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ReadOnlyActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".StartRoundActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".RevealingNameActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".QuestionsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".UncoveringActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".GuessWordActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ScoreActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

@@ -93,8 +93,8 @@
         6. After that, the score will be shown and you \'ll be asked if you want another round.\n
         \n
         Scoring system:\n
-        - A player who is not a spy successfully discovers a spy: 1 point per spy.\n
-        - A player who is a spy successfully discovers another spy: 1 point per spy.\n
+        - A player who is not a spy successfully discovers a spy: 3 points per spy.\n
+        - A player who is a spy successfully discovers another spy: 3 points per spy.\n
         - A player who is a spy successfully fools another player (The fooled player doesn\'t suspect him/her): 1 point per fooled player.\n
         - A player who is a spy successfully gets the secret word: 3 points.
     </string>
@@ -105,7 +105,7 @@
         \n
         Also thanks to my friends who gave me the idea, I \'ll mention Abdel Aziz \"Zizo\" Gad, Ali Amin, Mohamed \"Siko\" Mahmoud, Mohamed \"Koo\" Hasan and Mohamed \"Ahlawy\" Mahmoud.\n
         \n
-        And a big credit to my beloved sister, Gehan Farouk, who designed the images in this game and is helping me now writing these words.
+        And a big credit to my beloved sister, Gehan Farouk, who designed the logo and is helping me now writing these words.
     </string>
 
     <!--Contact-->

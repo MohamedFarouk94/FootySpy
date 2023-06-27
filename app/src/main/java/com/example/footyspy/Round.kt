@@ -26,7 +26,7 @@ class Round (
     }
 
     fun updateScoreInvestigate(investigator: Player, chosenToBeSpies: List<Player>){
-        for(player in chosenToBeSpies) if(listOfSpies.contains(player)) investigator.addScoreBy(1)
+        for(player in chosenToBeSpies) if(listOfSpies.contains(player)) investigator.addScoreBy(3)
         for(player in listOfSpies) if(player != investigator && !chosenToBeSpies.contains(player)) player.addScoreBy(1)
     }
 
